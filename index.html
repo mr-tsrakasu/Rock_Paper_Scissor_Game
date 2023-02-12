@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissor Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Rock Paper Scissor</h1>
+    <br>
+    <p>A long time ago in this now very barren land, an evil King by the name Agorkoli devised a plan to terrorize the people of Happy Land. King Agorkoli challenged the King of Happy Land, King Y4YRA, to a game of Rock Paper Scissor to decide who was going to be King of the land. King Y4YRA didnt want to agree as he had a legitimate claim to the throne but he was challenged and one thing the King never liked was such challenges. Evil King Agorkoli gave King Y4YRA a total of 3 months to prepare or present a champion to battle him. And now that the day is upon us, do you deem yourself a worthy opponent to face Evil King Agorkoli as King Y4YRA's champion??</p> <br>
+    <form action="#">
+        <label for="PlayerName">Enter your name if you accept to be Happy Land's champion: </label>
+        <input type="text" placeholder="Enter your battleground name here!" class="PlayerName">
+    </form>
+    <br>
+    <p>Thank you oh Brave one! King Y4YRA has declared a national holiday in your name, so that all citizens watch the game. The King has declared to grant one wish to you upon your win, failure only means we all get to stay under the tyranny of the wicked King Agorkoli and so make your choices count. Good Luck!</p>
+    <script>
+        console.log("Welcome to the grid! ")
+
+// creating variables
+// choices = Rock Paper Scissor
+// randomChoice generates an index for ComputerChoice
+// computerChoice uses a randomChoice input to select a random value in choices(Cant find a simpler way to do it)
+// userChoice is simply users choice from Rock Paper and Scissor
+// generateRandomChoice is a function that generates a random R P S value
+// todo: validate userChoice to only contain R, P or S value.
+// todo: compare user and computer choices.
+
+const choices = ['R', 'P', 'S']
+let randomChoice = Math.floor(Math.random() * choices.length)
+let computerChoice = choices[randomChoice]
+let userChoice = ('')
+let user = 0
+let agorkoli = 0
+
+
+function generateRandomChoice() {
+    randomChoice = Math.floor(Math.random() * choices.length)
+    computerChoice = choices[randomChoice]
+    return computerChoice
+};
+
+console.log('GET READY TO RUMBLEEEEEEEEE')
+
+for (i = 0; i <= 4; i++){
+    userChoice = prompt('R, P, or S ?',).toUpperCase()
+
+    console.log('Round ', i + 1 )
+    console.log("Y4YRA's champion  = ", userChoice)
+    console.log("King Agorkoli  = ", generateRandomChoice())
+
+    if ( userChoice === computerChoice ) {
+        console.log("It's a tie!")
+    }
+    else if ( userChoice == 'R' && computerChoice == 'P' ) {
+        console.log( "Paper Wins" )
+        agorkoli = agorkoli + 1
+    }
+    else if ( userChoice == 'R' && computerChoice == 'S' ) {
+        console.log( "Rock wins" )
+        user = user + 1
+    }
+    else if ( userChoice == 'P' && computerChoice == 'S' ) {
+        console.log( "Scissor wins" )
+        agorkoli = agorkoli + 1
+    }
+    else if ( userChoice == 'P' && computerChoice == 'R' ) {
+        console.log( "Paper wins" )
+        user = user + 1
+    }
+    else if ( userChoice == 'S' && computerChoice == 'R' ) {
+        console.log( "Rock Wins" )
+        agorkoli = agorkoli + 1
+    }
+    else if ( userChoice == 'S' && computerChoice == 'P' ) {
+        console.log( "Scissor Wins" )
+        user = user + 1
+    }
+    else console.log("Everybody 1-1, only you 2, why?")
+}
+
+console.log("At the end of the game, here are the scores")
+console.log("Agorkoli: ", agorkoli)
+console.log("Champion: ", user)
+if (agorkoli === user){
+    console.log("We have a tie!")
+}
+else if ( user > agorkoli ){
+    console.log("The Champion has won the crown for all of Happy Land. The citizens are free!!! ")
+}
+
+else console.log("Muahahahahahaha let all Citizens shout LONG LIVE KING AGORKOLI!!!!!!")
+    </script>
+</body>
+</html>
