@@ -41,7 +41,7 @@ form input{
 .playerSelectionPaper, .playerSelectionRock, .playerSelectionScissor {
         background-color: white;
         color: black;
-        border: 2px solid #4CAF50;
+        border: 2px solid black;
         width: 80px;
         height: 40px;
         transition-duration: 0.4s;
@@ -49,7 +49,7 @@ form input{
 }
 
 .playerSelectionPaper:hover {
-    background-color: rgb(134, 134, 237); /* Blue */
+    background-color: rgb(183, 183, 243); /* Blue */
     color: white;
   }
 
@@ -61,4 +61,16 @@ form input{
 .playerSelectionScissor:hover {
     background-color: rgb(253, 27, 27);  /* Red */
     color: white;
+}
+
+h1 #rock {
+    color: rgb(148, 41, 41);
+}
+
+h1 #paper {
+    color: rgb(183, 183, 243);
+}
+
+h1 #scissor {
+    color: rgb(253, 27, 27);
 }
