@@ -31,3 +31,34 @@ form {
 form input{
     width: 50%;
 }
+
+.rpsButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+.playerSelectionPaper, .playerSelectionRock, .playerSelectionScissor {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+        width: 80px;
+        height: 40px;
+        transition-duration: 0.4s;
+
+}
+
+.playerSelectionPaper:hover {
+    background-color: rgb(134, 134, 237); /* Blue */
+    color: white;
+  }
+
+.playerSelectionRock:hover {
+    background-color: rgb(148, 41, 41);  /* Brown */
+    color: white;
+}
+
+.playerSelectionScissor:hover {
+    background-color: rgb(253, 27, 27);  /* Red */
+    color: white;
+}
