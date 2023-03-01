@@ -74,3 +74,31 @@ h1 #paper {
 h1 #scissor {
     color: rgb(253, 27, 27);
 }
+
+.gameArea{
+    margin: 0 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleArea, .scoreArea, .gameText, .resetButton, .gameStart, .winnerText, .selection, .selectionArea{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.reset{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    width: 80px;
+    height: 40px;
+    transition-duration: 0.4s;
+}
+
+.reset:hover {
+    background-color: #000;  /* black */
+    color: white;
+}
+
+
