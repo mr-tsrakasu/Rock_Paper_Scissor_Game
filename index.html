@@ -7,22 +7,53 @@
     <title>RockPaperScissor Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="body">
     <h1><span id="rock">Rock</span> <span id="paper">Paper</span> <span id="scissor">Scissor</span> </h1>
-    <br>
-    <p>A long time ago in this now very barren land, an evil King by the name Agorkoli devised a plan to terrorize the people of Happy Land. King Agorkoli challenged the King of Happy Land, King Y4YRA, to a game of Rock Paper Scissor to decide who was going to be King of the land. King Y4YRA didnt want to agree as he had a legitimate claim to the throne but he was challenged and one thing the King never liked was such challenges. Evil King Agorkoli gave King Y4YRA a total of 3 months to prepare or present a champion to battle him. And now that the day is upon us, do you deem yourself a worthy opponent to face Evil King Agorkoli as King Y4YRA's champion??</p> <br>
-    <form action="#">
-        <label for="PlayerName">Enter your name if you accept to be Happy Land's champion: </label>
-        <input type="text" placeholder="Enter your battleground name here!" class="PlayerName">
-    </form>
-    <br>
-    <p>Thank you <span class="playerName">oh Brave one</span>! King Y4YRA has declared a national holiday in your name, so that all citizens watch the game. The King has declared to grant one wish to you upon your win, failure only means we all get to stay under the tyranny of the wicked King Agorkoli and so make your choices count. Good Luck!</p>
-<br><br>
+    <br><br><br>
     <div class="rpsButtons">
     <button class="playerSelectionRock">Rock</button>
     <button class="playerSelectionPaper">Paper</button>
     <button class="playerSelectionScissor">Scissor</button>
     </div>
+<br>
+<div class="gameStart">Click on either of the buttons to play a round</div>
+<br>
+<div class="gameText"></div>
+<br>
+
+<div class="gameArea">
+
+    <div class="selectionArea">
+        <div>User selection</div>
+        <div>Computer selection</div>
+    </div>
+
+    <div class="selection">
+        <div class="uSelection"></div>
+        <div class="cSelection"></div>
+    </div>
+
+    <br><br><br>
+
+    <div class="titleArea">
+    <div class="userDiv">User Score</div>
+    <div class="computerDiv">Computer Score</div>
+    </div>
+
+    <div class="scoreArea">
+        <div class="userScore">0</div>
+        <div class="computerScore">0</div>
+    </div>
+
+</div>
+<br><br><br>
+
+<div class="winnerText"></div>
+
+<br><br>
+<div class="resetButton">
+    <button class="reset">RESET GAME</button>
+</div>
     <script src="rps_ui.js"></script>
 
 </body>
