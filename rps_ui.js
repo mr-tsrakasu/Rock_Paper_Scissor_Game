@@ -97,8 +97,8 @@ rock.addEventListener('click', function() {
 paper.addEventListener('click', function(){
     userChoice = 'P'
     computerChoice = generateRandomChoice()
-    compareChoices(computerChoice,userChoice)
-    checkWinner(computerScore, userScore)
+    compareChoices(userChoice, computerChoice)
+    checkWinner(computer, user)
     displayChoices()
     displayScores()
 })
@@ -106,8 +106,8 @@ paper.addEventListener('click', function(){
 scissor.addEventListener('click', function(){
     userChoice = 'S'
     computerChoice = generateRandomChoice()
-    compareChoices(computerChoice,userChoice)
-    checkWinner(computerScore, userScore)
+    compareChoices(userChoice, computerChoice)
+    checkWinner(computer, user)
     displayChoices()
     displayScores()
 })
