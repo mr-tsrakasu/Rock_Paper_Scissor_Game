@@ -10,6 +10,7 @@ const userSelection = document.querySelector('.uSelection')
 const computerSelection = document.querySelector('.cSelection')
 const choices = ['R', 'P', 'S']
 let userChoice = ''
+let computerChoice = ""
 let user = 0
 let computer = 0
 
@@ -24,143 +25,91 @@ function resetEverything() {
     gameText.textContent = ("")
     computerScore.textContent = (0)
     userScore.textContent = (0)
-    winner.textContent = ("")
+    //winner.textContent = ("")
     userSelection.textContent = ("")
     computerSelection.textContent = ("")
     user = 0
     computer = 0
 }
 
+function displayChoices() {
+    userSelection.textContent = (userChoice)
+    computerSelection.textContent = (computerChoice)
+}
+
+function compareChoices(us, comp){
+    if (comp === us){
+        gameText.textContent = ("It's a tie!! ")
+    }
+    else if (us === 'R' && comp === 'P'){
+        computer++
+        gameText.textContent = ("Computer wins, Paper beats Rock")
+    }
+    else if (us === 'R' && comp === 'S'){
+        user++
+        gameText.textContent = ("You win, Rock beats Scissors")
+    }
+    else if (us === 'P' && comp === 'R'){
+        user++
+        gameText.textContent = ("You win, Paper beats Rock")
+    }
+    else if (us === 'P' && comp === 'S'){
+        computer++
+        gameText.textContent = ("Computer wins, Scissors beats Rock")
+    }
+    else if (us === 'S' && comp === 'R'){
+        computer++
+        gameText.textContent = ("Computer wins, Rock beats Scissors")
+    }
+    else if (us === 'S' && comp === 'P'){
+        user++
+        gameText.textContent = ("User wins, Scissors beats Paper")
+    }
+    else gameText.textContent = ("Something Fatale occurred, please reset the game.")
+}
+
+function checkWinner(compScore, usScore){
+    if(compScore === 5){
+        winner.textContent = ("GAME OVER, COMPUTER WINS! Click on reset to start a new game")
+        resetEverything()
+    }
+    else if(usScore === 5){
+        winner.textContent = ("GAME OVER, USER WINS!! Click on reset to start a new game")
+        resetEverything()
+    }
+    else winner.textContent = ("")
+}
+
+function displayScores(){
+    userScore.textContent = (user)
+    computerScore.textContent = (computer)
+}
+
 rock.addEventListener('click', function() {
     userChoice = 'R'
     computerChoice = generateRandomChoice()
-
-    if ( userChoice === computerChoice ) {
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("It's a tie!")
-        gameText.textContent = ("It's a tie!!")
-    }
-    else if (computerChoice == 'P') {
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log( "Paper beats Rock" )
-        gameText.textContent = ("Paper beats Rock")
-       computer += 1
-       computerScore.textContent = (computer)
-       if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-    }
-    else if (computerChoice == 'S') {
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log( "Rock beats Scissors" )
-        gameText.textContent = ("Rock beats Scissors")
-        user += 1
-        userScore.textContent = (user)
-        if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-    }
+    displayChoices()
+    compareChoices(userChoice, computerChoice)
+    checkWinner(computer, user)
+    displayScores()
 })
 
 paper.addEventListener('click', function(){
     userChoice = 'P'
     computerChoice = generateRandomChoice()
-
-    if (computerChoice == userChoice){
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("It's a tie!")
-        gameText.textContent = ("It's a tie!!")
-    }
-    else if (computerChoice == 'S') {
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("Scissor beats Paper")
-        gameText.textContent = ("Scissor beats Paper")
-        computer += 1
-        computerScore.textContent = (computer)
-        if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-    }
-    else if (computerChoice == 'R'){
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("Paper beats Rock")
-        gameText.textContent = ("Paper beats Rock")
-        user += 1
-        userScore.textContent = (user)
-        if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-    }
+    compareChoices(computerChoice,userChoice)
+    checkWinner(computerScore, userScore)
+    displayChoices()
+    displayScores()
 })
 
 scissor.addEventListener('click', function(){
-     userChoice = 'S'
-     computerChoice = generateRandomChoice()
-
-     if (computerChoice == userChoice){
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("It's a tie!")
-        gameText.textContent = ("It's a tie!!")
-     }
-     else if(computerChoice == 'R'){
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("Rock beats Scissor")
-        gameText.textContent = ("Rock beats Scissor")
-        computer += 1
-        computerScore.textContent = (computer)
-        if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-     }
-     else if(computerChoice == 'P'){
-        userSelection.textContent = (userChoice)
-        computerSelection.textContent = (computerChoice)
-        console.log("Scissor beats Paper")
-        gameText.textContent = ("Scissor beats Paper")
-        user += 1
-        userScore.textContent = (user)
-        if(user == 5){
-            winner.textContent = ("GAME OVER, PLAYER WINS. Click on reset to start a new game")
-            user = 0
-        }
-        else if(computer == 5){
-            winner.textContent = ("GAME OVER, COMPUTER WINS. Click on reset to start a new game")
-            computer = 0
-        }
-     }
+    userChoice = 'S'
+    computerChoice = generateRandomChoice()
+    compareChoices(computerChoice,userChoice)
+    checkWinner(computerScore, userScore)
+    displayChoices()
+    displayScores()
 })
 
 reset.addEventListener('click', function(){
